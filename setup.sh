@@ -1,9 +1,22 @@
-source /cvmfs/hep.pnnl.gov/project8/dependencies/${P8DEPBUILD}/setup.sh
+source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh
 
-export P8DEPPYBASEDIR=${P8BASEDIR}/dependencies-py/${P8DEPPYBUILD}
+export P8DEPMORPHOBUILD=build-2017-10-18
 
-export PYTHONPATH=${P8DEPPYBASEDIR}/lib/python2.7/site-packages:${PYTHONPATH} 
-export PATH=${P8DEPPYBASEDIR}/bin:${PATH} 
+export P8DEPMORPHOBASEDIR=${P8BASEDIR}/dependencies-morpho/${P8DEPMORPHOBUILD}
+
+export PATH=${P8DEPMORPHOBASEDIR}/bin:${PATH}
+export INCLUDE_PATH=${P8DEPMORPHOBASEDIR}/include:${INCLUDE_PATH}
+export INCLUDE_PATH=${P8DEPMORPHOBASEDIR}/include/libpng16:${INCLUDE_PATH}
+export LIBRARY_PATH=${P8DEPMORPHOBASEDIR}/lib:${LIBRARY_PATH}
+export LIBRARY_PATH=${P8DEPMORPHOBASEDIR}/lib/libpng:${LIBRARY_PATH}
+export LIBRARY_PATH=${P8DEPMORPHOBASEDIR}/lib64:${LIBRARY_PATH}
+export LD_LIBRARY_PATH=${P8DEPMORPHOBASEDIR}/lib:${LIBRARY_PATH}
+export LD_LIBRARY_PATH=${P8DEPMORPHOBASEDIR}/lib/libpng:${LIBRARY_PATH}
+export LD_LIBRARY_PATH=${P8DEPMORPHOBASEDIR}/lib64:${LIBRARY_PATH}
+
+export LIBDIR=${LD_LIBRARY_PATH}:${LIBDIR}
+
+export PYTHONPATH=${P8DEPMORPHOBASEDIR}/lib/python2.7/site-packages:${PYTHONPATH} 
 
 
 
