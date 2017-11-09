@@ -11,5 +11,9 @@ ADD ./install.sh /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOB
 ADD ./python_tester.py /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/python_tester.py
 
 RUN source /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/setup.sh && \
+    chmod +x /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/download_pkg.sh &&\    
+    sleep 1 &&\
     /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/download_pkg.sh && \
+    chmod +x /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/install.sh &&\    
+    sleep 1 &&\
     /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/install.sh
