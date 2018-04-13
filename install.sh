@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/setup.sh
+source /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/setup.sh
 
-echo `which python`
-echo `python -V`
+echo `which python3`
+echo `python3 -V`
 
 echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
 echo "LIBRARY_PATH: $LIBRARY_PATH"
@@ -13,13 +13,13 @@ echo "PATH: $PATH"
 echo "Library search path:"
 echo `ldconfig -v 2>/dev/null | grep -v ^$'\t'`
 
-cd ${P8DEPMORPHOBASEDIR}/src/
+cd ${P8DEPMERMITHIDBASEDIR}/src/
 
 # libpng
 # echo "pkg-config"
 # cd pkg-config
-# ./configure --prefix=${P8DEPMORPHOBASEDIR} CC=$CC --with-internal-glib       | tee cmake_log.txt
-# # ./configure --enable-shared --prefix=${P8DEPMORPHOBASEDIR} | tee config_log.txt
+# ./configure --prefix=${P8DEPMERMITHIDBASEDIR} CC=$CC --with-internal-glib       | tee cmake_log.txt
+# # ./configure --enable-shared --prefix=${P8DEPMERMITHIDBASEDIR} | tee config_log.txt
 # make -j3                                             | tee make_log.txt
 # make -j3 install                                     | tee make_install_log.txt
 # cd ..
@@ -27,50 +27,51 @@ cd ${P8DEPMORPHOBASEDIR}/src/
 # libpng
 echo "libpng"
 cd libpng
-cmake . -DCMAKE_INSTALL_PREFIX=${P8DEPMORPHOBASEDIR}       | tee cmake_log.txt
-# ./configure --enable-shared --prefix=${P8DEPMORPHOBASEDIR} | tee config_log.txt
+cmake . -DCMAKE_INSTALL_PREFIX=${P8DEPMERMITHIDBASEDIR}       | tee cmake_log.txt
+# ./configure --enable-shared --prefix=${P8DEPMERMITHIDBASEDIR} | tee config_log.txt
 make -j3                                             | tee make_log.txt
 make -j3 install                                     | tee make_install_log.txt
 cd ..
 
 rm -rf *
 
-ls ${P8DEPMORPHOBASEDIR}/include
+ls ${P8DEPMERMITHIDBASEDIR}/include
 
-export PKG_CONFIG_PATH=${P8DEPMORPHOBASEDIR}/lib
-ls ${P8DEPMORPHOBASEDIR}/lib
+export PKG_CONFIG_PATH=${P8DEPMERMITHIDBASEDIR}/lib
+ls ${P8DEPMERMITHIDBASEDIR}/lib
 
 #######################################################################
 #
-# build all python packages
+# build all python3 packages
 #
 ########################################################################
 
 # Get pip and setuptools
-echo 'Python packages'
-cd /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}
+echo 'python3 packages'
+cd /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}
 wget https://bootstrap.pypa.io/get-pip.py
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} setuptools pip wheel 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} setuptools pip wheel 
 
-# Install Python packages
-# For morpho
-# python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} colorlog 
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} PyYAML==3.11 
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} pyparsing>=2.1.5 
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} dnspython==1.12.0 
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} pbr==0.10.8 
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} wsgiref==0.1.2 
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} cycler==0.10.0 
-python get-pip.py --prefix=${P8DEPMORPHOBASEDIR} colorlog==3.1.0
+# Install python3 packages
+# For mermithid
+# python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} colorlog 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} PyYAML==3.11 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pyparsing>=2.1.5 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} dnspython==1.12.0 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pbr==0.10.8 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} wsgiref==0.1.2 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} cycler==0.10.0 
+python3 get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} colorlog==3.1.2
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} python-dateutil==2.7.2
 echo "Putting symbolic links for installing matplotlib"
-ln -s /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/include/png*.h /usr/include/
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} matplotlib==1.5.1 
+ln -s /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/include/png*.h /usr/include/
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} matplotlib==1.5.1 
 echo "Removing symbolic links after installing matplotlib"
 rm /usr/include/png.h /usr/include/pngconf.h /usr/include/pnglibconf.h
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} pystan==2.15.0.1 
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} h5py==2.6 
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} numpy==1.13.1
-python  get-pip.py --prefix=${P8DEPMORPHOBASEDIR} python-dateutil==2.5.3
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pystan==2.17.0.0 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} h5py==2.6 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} numpy==1.14.2
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} uproot==2.8.16
 
 # Test the presence of ROOT and HDF5
-python /cvmfs/hep.pnnl.gov/project8/dependencies-morpho/${P8DEPMORPHOBUILD}/python_tester.py 
+python3 /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/python_tester.py 
