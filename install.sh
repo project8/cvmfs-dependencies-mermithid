@@ -50,26 +50,25 @@ ls ${P8DEPMERMITHIDBASEDIR}/lib
 echo 'python3 packages'
 cd /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}
 wget https://bootstrap.pypa.io/get-pip.py
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} setuptools pip wheel 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} setuptools pip wheel
 
 # Install python3 packages
 # For mermithid
 # python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} colorlog 
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} PyYAML==3.11 
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pyparsing>=2.1.5 
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} dnspython==1.12.0 
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pbr==0.10.8 
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} wsgiref==0.1.2 
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} cycler==0.10.0 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} PyYAML==3.11
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pyparsing>=2.1.5
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} dnspython==1.12.0
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pbr==0.10.8
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} cycler==0.10.0
 python3 get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} colorlog==3.1.2
 python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} python-dateutil==2.7.2
 echo "Putting symbolic links for installing matplotlib"
 ln -s /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/include/png*.h /usr/include/
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} matplotlib==1.5.1 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} matplotlib==1.5.1
 echo "Removing symbolic links after installing matplotlib"
 rm /usr/include/png.h /usr/include/pngconf.h /usr/include/pnglibconf.h
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pystan==2.17.0.0 
-python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} h5py==2.6 
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pystan==2.17.0.0
+python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} h5py==2.6
 python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} numpy==1.14.2
 python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} uproot==2.8.16
 
