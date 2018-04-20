@@ -50,10 +50,11 @@ wget https://bootstrap.pypa.io/get-pip.py
 python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pip
 
 # Update pip et.al.
-pip3 install --prefix=${P8DEPMERMITHIDBASEDIR} setuptools pip wheel --upgrade
+# pkgconfig is required by lz4 and needs to be installed before...
+pip3 install --prefix=${P8DEPMERMITHIDBASEDIR} setuptools pip wheel pkgconfig==1.3.1 --upgrade
 which pip3
 
-# pkgconfg and lz4 required by root 6.13
+# lz4 required by root 6.13
 
 PKG_TO_INSTALL="PyYAML==3.11 \
                 pyparsing>=2.1.5 \
@@ -66,7 +67,6 @@ PKG_TO_INSTALL="PyYAML==3.11 \
                 h5py==2.6 \
                 numpy==1.14.2 \
                 uproot==2.8.16 \
-                pkgconfig==1.3.1 \
                 lz4==1.1.0"
 
 # Install python3 packages
