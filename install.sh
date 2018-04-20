@@ -53,6 +53,8 @@ python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pip
 pip3 install --prefix=${P8DEPMERMITHIDBASEDIR} setuptools pip wheel --upgrade
 which pip3
 
+# pkgconfg and lz4 required by root 6.13
+
 PKG_TO_INSTALL="PyYAML==3.11 \
                 pyparsing>=2.1.5 \
                 dnspython==1.12.0 \
@@ -63,7 +65,9 @@ PKG_TO_INSTALL="PyYAML==3.11 \
                 pystan==2.17.0.0 \
                 h5py==2.6 \
                 numpy==1.14.2 \
-                uproot==2.8.16"
+                uproot==2.8.16 \
+                pkgconfig==1.3.1 \
+                lz4==1.1.0"
 
 # Install python3 packages
 # For mermithid
