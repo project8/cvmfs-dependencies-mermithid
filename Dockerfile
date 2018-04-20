@@ -1,4 +1,4 @@
-FROM project8/cvmfs-dependencies-common:build-2018-04-12
+FROM project8/cvmfs-dependencies-common:build-2018-04-17
 
 # Adding a clean tmp folder for containing the bash scripts
 RUN mkdir -p tmp_install
@@ -12,5 +12,6 @@ ADD ./run-cvmfs-install.sh /tmp_install/run-cvmfs-install.sh
 
 RUN cd /tmp_install && \
     ls && \
+    source /opt/rh/devtoolset-3/enable && \
     source /tmp_install/run-cvmfs-install.sh && \
     rm -rf /tmp_install

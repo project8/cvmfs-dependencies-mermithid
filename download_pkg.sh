@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPMERMITHIDBUILD}/setup.sh
+source /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/setup.sh
 
 ########################################################################
 #

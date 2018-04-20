@@ -1,6 +1,6 @@
 # setting dependencies and dep-morpho build name
-export P8DEPBUILD=build-2018-04-12
-export P8DEPMERMITHIDBUILD=build-2018-04-12
+export P8DEPBUILD=build-2018-04-17
+export P8DEPMERMITHIDBUILD=build-2018-04-20
 
 # source common dependencies 
 source /cvmfs/hep.pnnl.gov/project8/dependencies-common/${P8DEPBUILD}/setup.sh
@@ -20,6 +20,8 @@ export LD_LIBRARY_PATH=${P8DEPMERMITHIDBASEDIR}/lib64:${LIBRARY_PATH}
 export LIBDIR=${LD_LIBRARY_PATH}:${LIBDIR}
 
 export PYTHONPATH=${P8DEPMERMITHIDBASEDIR}/lib/python3.6/site-packages:${PYTHONPATH} 
+export PKG_CONFIG_PATH=${P8DEPMERMITHIDBASEDIR}/lib:${P8DEPMERMITHIDBASEDIR}/lib/pkgconfig:${PKG_CONFIG_PATH}
+
 
 
 
