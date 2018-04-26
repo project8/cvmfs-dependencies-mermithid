@@ -43,6 +43,18 @@ Fixes:
 Log
 ---
 
+Version: build-2018-04-26
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Date: Apr 26 2018
+'''''''''''''''''''''''''
+
+New Features:
+'''''''''''''
+
+* Bump dependencies-common
+* Safer install using absolute paths and moving cleanup to its own script
+
 Version: build-2018-04-20
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
