@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/setup.sh
+# It's assumed that you've already sourced the relevant setup.sh
 
 ########################################################################
 #
@@ -9,9 +9,8 @@ source /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD
 ########################################################################
 
 # get into the parent directory for all the source code and build proucts
-cd ${P8DEPMERMITHIDBASEDIR}
-mkdir src
-cd src/
+mkdir -p ${P8DEPMERMITHIDBASEDIR}/src
+cd ${P8DEPMERMITHIDBASEDIR}/src
 pwd
 
 

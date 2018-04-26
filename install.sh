@@ -1,9 +1,6 @@
 #!/bin/bash
 
-source /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/setup.sh
-
-
-cd ${P8DEPMERMITHIDBASEDIR}/src/
+# It's assumed that you've already sourced the relevant setup.sh
 
 
 echo `which python3`
@@ -19,7 +16,7 @@ echo `ldconfig -v 2>/dev/null | grep -v ^$'\t'`
 
 # libpng
 echo "libpng"
-cd libpng
+cd ${P8DEPMERMITHIDBASEDIR}/src/libpng
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=${P8DEPMERMITHIDBASEDIR} \
@@ -28,11 +25,6 @@ cmake -DCMAKE_INSTALL_PREFIX=${P8DEPMERMITHIDBASEDIR} \
       -D CMAKE_INSTALL_INCLUDEDIR:PATH=${P8DEPMERMITHIDBASEDIR}/include  ..       | tee cmake_log.txt
 make -j3                                             | tee make_log.txt
 make -j3 install                                     | tee make_install_log.txt
-cd ..
-
-# Clean up the source directory
-pwd
-rm -rf *
 
 # Setting the PKG_CONFIG_PATH here so matplotlib finds the libpng package
 export PKG_CONFIG_PATH=${P8DEPMERMITHIDBASEDIR}/lib
@@ -45,7 +37,7 @@ export PKG_CONFIG_PATH=${P8DEPMERMITHIDBASEDIR}/lib
 
 # Get pip and setuptools
 echo 'python3 packages'
-cd /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}
+cd ${P8DEPMERMITHIDBASEDIR}
 wget https://bootstrap.pypa.io/get-pip.py
 python3  get-pip.py --prefix=${P8DEPMERMITHIDBASEDIR} pip
 
@@ -72,8 +64,8 @@ PKG_TO_INSTALL="PyYAML==3.11 \
 # Install python3 packages
 # For mermithid
 echo "Putting symbolic links for installing matplotlib"
-ln -s /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/include/png*.h /usr/include/
+ln -s ${P8DEPMERMITHIDBASEDIR}/include/png*.h /usr/include/
 pip3 install --prefix=${P8DEPMERMITHIDBASEDIR} ${PKG_TO_INSTALL}
 
 # Test the presence of ROOT and HDF5
-python3 /cvmfs/hep.pnnl.gov/project8/dependencies-mermithid/${P8DEPMERMITHIDBUILD}/python_tester.py 
+python3 ${P8DEPMERMITHIDBASEDIR}/python_tester.py 
