@@ -17,5 +17,5 @@ mv ${SCRIPT_DIR}/install.sh ${P8DEPMERMITHIDBASEDIR}/install.sh
 mv ${SCRIPT_DIR}/python_tester.py ${P8DEPMERMITHIDBASEDIR}/python_tester.py
 
 # run the download and install scripts
-${P8DEPMERMITHIDBASEDIR}/download_pkg.sh
-${P8DEPMERMITHIDBASEDIR}/install.sh
+${P8DEPMERMITHIDBASEDIR}/download_pkg.sh | tee ${P8DEPMERMITHIDBASEDIR}/download_log
+${P8DEPMERMITHIDBASEDIR}/install.sh | tee ${P8DEPMERMITHIDBASEDIR}/install_log
