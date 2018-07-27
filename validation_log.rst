@@ -14,14 +14,14 @@ Guidelines
   * Perform tests to show that the fix solves the problem that had been indicated.
   * Perform tests to shwo that the fix does not cause other problems.
   * Indicate in this log what tests were performed and how you know the problem was fixed.
-  
+
 Template
 --------
 
-Version: 
+Version:
 ~~~~~~~~
 
-Release Date: 
+Release Date:
 '''''''''''''
 
 New Features:
@@ -31,7 +31,7 @@ New Features:
     * Details
 * Feature 2
     * Details
-  
+
 Fixes:
 ''''''
 
@@ -39,9 +39,21 @@ Fixes:
     * Details
 * Fix 2
     * Details
-  
+
 Log
 ---
+
+Version: build-2018-07-26
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Release Date: Jul 26 2018
+'''''''''''''''''''''''''
+
+New Features:
+'''''''''''''
+
+* Cleanup of the mermithid and morpho dependencies
+* Adding explicit versions for pip setuptools and others 
 
 Version: build-2018-04-26
 ~~~~~~~~~~~~~~~~~~~~~~~~~
